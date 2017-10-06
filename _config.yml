@@ -50,7 +50,7 @@ baseurl: ""
 
 #Github repos in sidebar - match them up to the repository name...
 githubrepos: [
-    "DSC-FSRM",
+    "FSRM",
     "PSNetBackup"]
 
 #
