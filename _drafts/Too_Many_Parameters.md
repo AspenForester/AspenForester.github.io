@@ -4,7 +4,7 @@ title: Replacing Parameters with a Data File
 comments: true
 ---
 
-Sometimes eight required parameters are  too many when your end user only wants to pick between taking action on their UAT environment or their production environment.  In cases like that it might be more desirable to provide the module you wrote for them with a data file that contains the pertinent information.
+Sometimes eight required parameters are too many when your end user only wants to pick between taking action on their UAT environment or their production environment.  In cases like that it might be more desirable to provide the module you wrote for them with a data file that contains the pertinent information.
 
 In my case I was delivering two scripts in the form of two functions bundled as a module.  We have a simple internal NuGet repository, and being able to deliver updates to that location, and showing them how to do Update-Module made life easy when it came to working out kinks 
 with their process and the scripts.
