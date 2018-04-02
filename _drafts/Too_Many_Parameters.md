@@ -4,14 +4,12 @@ title: Replacing Parameters with a Data File
 comments: true
 ---
 
-Sometimes eight required paramters are just too many when your end user just wants to pick between taking action on their UAT environment or their production environment.  In cases like that it might be more desirable to provide the module youwrote for them with a data file that contains the pertinant information.
+Sometimes eight required parameters are  too many when your end user only wants to pick between taking action on their UAT environment or their production environment.  In cases like that it might be more desirable to provide the module you wrote for them with a data file that contains the pertinent information.
 
 In my case I was delivering two scripts in the form of two functions bundled as a module.  We have a simple internal NuGet repository, and being able to deliver updates to that location, and showing them how to do Update-Module made life easy when it came to working out kinks 
 with their process and the scripts.
 
-I decided to replace the eight mandatory parameters with a single "Environment" parameter, 
-the content of which is controlled with [validateSet()], and a datafile with all the required info.
-The two functions Start-MyThings and Stop-MyThings (Not the real names, BTW) each start by loading the datafile from the $psscriptroot location.
+I decided to replace the eight mandatory parameters with a single "Environment" parameter.  I control the content of $Environment [validateSet()]. Then a datafile with all the required info, keyed with the stop and actions, and the environment names fill in the information that once came from the eight parameters.  The two functions Start-MyThings and Stop-MyThings (Not the real names, BTW) each start by loading the datafile from the $psscriptroot location.
 
 If we break the logic down there's a "start" and "stop" for each environment.  So the datafile ends up looking like this:
 
@@ -75,6 +73,8 @@ We get `$Environment` as a parameter, so we can do the following
 ```
 $StopSettings = $ImportedData.$Environment.Stop
 ```
+And if we assume they chose "UAT", it leaves us with a simple Hashtable for Stopping the UAT environment.
+
 Then we can iterate over the keys and create the variables that once came from the parameters, and we don't need to do anything to the rest of the code.
 ```
 foreach ($key in $StopSettings.Keys)
