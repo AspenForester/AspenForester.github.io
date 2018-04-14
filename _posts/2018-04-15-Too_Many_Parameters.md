@@ -90,4 +90,4 @@ If you look at [Jaykul's Optimize-Module Gist](https://gist.github.com/Jaykul/17
 
 Data files like this have many uses and seem to support good DevOps practices.  I'm looking forward to re-examining some of my other Scripts, Functions, and Modules with this new tool in my kit.  I hope you are too!
 
-P.S. I have a confession to make, and maybe you've spotted what I've done.  After talking to another, more PowerShell savvy coworker, I came to the realization that I could have implemented these service control tasks as a DSC configuration.
+P.S. I have a confession to make, and maybe you've spotted what I've done.  After talking to another coworker, I came to the realization that I could have implemented these service control tasks as a DSC configuration.
