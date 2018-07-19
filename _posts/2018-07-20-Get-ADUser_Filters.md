@@ -4,7 +4,7 @@ title: Get-ADUser Filters
 comments: true
 ---
 # Get-ADUser Filters
-The filters for Get-ADUser are weird, and perhaps poorly, or more generously, "under-" documented.  There's the about_ActiveDirectory_Filter topic, and there are examples in the command's help.  There's [this Technet wiki page](https://social.technet.microsoft.com/wiki/contents/articles/28485.filters-with-powershell-active-directory-module-cmdlets.aspx) maintained by [MVP Richard Mueller](http://www.rlmueller.net/), and any number of other blog posts.  
+The filters for Get-ADUser are weird, and perhaps poorly, or more generously, "under-" documented.  There's the about_ActiveDirectory_Filter topic, and there are examples in the command's help.  There's [this Technet wiki page](https://social.technet.microsoft.com/wiki/contents/articles/28485.filters-with-powershell-active-directory-module-cmdlets.aspx) maintained by [MVP Richard Mueller](http://www.rlmueller.net/), and any number of other blog posts.  But with so many options, it's nearly impossible to provide examples for every combination.
   
 Getting the filter right on the first attempt remains as elusive as getting a Regular Expression right on the first try.
   
