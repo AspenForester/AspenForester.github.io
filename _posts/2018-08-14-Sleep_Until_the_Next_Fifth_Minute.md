@@ -2,6 +2,8 @@
 layout: post
 title: Sleep until the Next Fifth Minute
 comments: true
+toc: true
+toc_icon: "cog"
 ---
 
 Tim Curwick of the [Mad With PowerShell](https://www.madwithpowershell.com/) blog deserves credit for this, but I don't think he's ever blogged about it.
