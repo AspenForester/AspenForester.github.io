@@ -55,6 +55,18 @@ githubrepos: [
 
 #Trying out the minimal-mistakes theme
 remote_theme: "mmistakes/minimal-mistakes"
+minimal_mistakes_skin: "air" # "air", "aqua", "contrast", "dark", "dirt", "neon", "mint", "plum", "sunrise", "default"
+locale: "en-US"
+
+defaults:
+  # _posts
+  - scope:
+    path: ""
+    type: posts
+  values:
+    read_time: true
+    comments: true
+
 #
 # !! You don't need to change any of the configuration flags below !!
 #
