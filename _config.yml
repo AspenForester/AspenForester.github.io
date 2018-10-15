@@ -53,6 +53,8 @@ githubrepos: [
     "FSRM",
     "PSNetBackup"]
 
+#Trying out the minimal-mistakes theme
+remote_theme: "mmistakes/minimal-mistakes"
 #
 # !! You don't need to change any of the configuration flags below !!
 #
