@@ -54,8 +54,8 @@ githubrepos: [
     "PSNetBackup"]
 
 #Trying out the minimal-mistakes theme
-remote_theme: "mmistakes/minimal-mistakes"
-minimal_mistakes_skin: "air" # "air", "aqua", "contrast", "dark", "dirt", "neon", "mint", "plum", "sunrise", "default"
+#remote_theme: "mmistakes/minimal-mistakes"
+#minimal_mistakes_skin: "air" # "air", "aqua", "contrast", "dark", "dirt", "neon", "mint", "plum", "sunrise", "default"
 locale: "en-US"
 
 defaults:
