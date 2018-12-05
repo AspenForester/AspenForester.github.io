@@ -2,7 +2,7 @@ permalink: /:title/
 url: https://aspenforester.github.io
 baseurl: ""
 name: AspenForester
-theme: jekyll-theme-tactile
+remote_theme: luoyan35714/LessOrMore
 description: Bodger of PowerShell
 # URL of your avatar or profile pic (you could use your GitHub profile pic)
 avatar: https://avatars0.githubusercontent.com/u/7593052?s=460&v=4
