@@ -1,10 +1,9 @@
+name: "AspenForester"
 #
 # This file contains configuration flags to customize your site
 #
 
 # Name of your site (displayed in the header)
-name: "AspenForester"
-
 # Short bio or description (displayed in the header)
 description: Bodger of PowerShell
 
