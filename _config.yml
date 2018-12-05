@@ -1,6 +1,9 @@
 permalink: /:title/
 url: https://aspenforester.github.io
 baseurl: ""
+name: AspenForester
+theme: jekyll-theme-tactile
+
 #
 # This file contains configuration flags to customize your site
 #
@@ -92,5 +95,4 @@ exclude:
   - README.md
   - CNAME
 
-theme: jekyll-theme-tactile
-name: AspenForester
+
