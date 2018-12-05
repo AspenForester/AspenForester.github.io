@@ -3,6 +3,7 @@ url: https://aspenforester.github.io
 baseurl: ""
 name: AspenForester
 theme: jekyll-theme-tactile
+description: Bodger of PowerShell
 
 #
 # This file contains configuration flags to customize your site
@@ -10,7 +11,7 @@ theme: jekyll-theme-tactile
 
 # Name of your site (displayed in the header)
 # Short bio or description (displayed in the header)
-# description: Bodger of PowerShell
+# 
 
 # URL of your avatar or profile pic (you could use your GitHub profile pic)
 avatar: https://avatars0.githubusercontent.com/u/7593052?s=460&v=4
