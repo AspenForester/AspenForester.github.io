@@ -34,23 +34,23 @@ So, I started with the great guest post by Alex Asplund on the Adam The Automato
 + TeamMember.Read.All
 + User.Read.All  
 
-I chose to use the certificate method of authenticating for the OAuth token, and thus created a self-signed Certificate, then exported and uploaded it to the App Registration.
+I chose to use the certificate method of authenticating for the OAuth token and thus created a self-signed Certificate, then exported and uploaded it to the App Registration.
 Again, I used the code snippets in the blog to create an OAuth token to use with Graph API requests.  
-One of the requirements was to provide the expiration date of each group.  Researching the outputs of various teams- and groups-related graph, the creation date and the last-renewed date are returned.  We need to be able to calculate the expiration date, and for that we need to know what the lifecycle policy is for the groups.
+One of the requirements was to provide the expiration date of each group.  Researching the outputs of various teams- and groups-related graph endpoints, the creation date and the last-renewed date are returned.  We need to be able to calculate the expiration date, and for that we need to know what the lifecycle policy is for the groups.
 ```PowerShell
  $GLCPolicyURI = "https://graph.microsoft.com/v1.0/groupLifecyclePolicies"
 $GLCPolicyRequest = Invoke-RestMethod -uri $GLCPolicyURI -Headers $header -Method Get 
 # $GLCPolicyRequest.value[0].groupLifetimeInDays 
 ```
-The request returns you a collection (of one, in my case) Group Lifecycle Policies with all of the policy's properties including the `groupLifetimeInDays` value that we're after.  
-Now we want to get the groups.  We want to end up with the Teams, and Teams are "Unified" groups in Azure AD.  The following will get the Unified groups in your organization  
+The request returns you a collection (of one, in my case) of Group Lifecycle Policies with all of the policy's properties including the `groupLifetimeInDays` value that we're after.  
+Now we want to get the groups.  We want to end up with the Teams, and Teams are "Unified" groups in Azure AD.  The following will get the Unified groups in your organization:  
 ```PowerShell
 $UnifiedGroupsURI = "https://graph.microsoft.com/v1.0/groups?`$filter=groupTypes/any(c:c+eq+'Unified')"
 $AllUnifiedgroupsRequest = Invoke-RestMethod -uri $UnifiedGroupsURI -Headers $header -Method Get
 ```
 >**Note:** When using the OData queries via PowerShell, you need to be careful to include the backtick that escapes the dollar sign, otherwise PowerShell is going to try and evaluate `$filter`. 
 
-Another thing to be aware of is the Graph endpoints generally return just 100 items per page, but that response includes a link to get the **next** page.  So, to deal with that and get all of the groups, use a `while` loop
+Another thing to be aware of is the Graph endpoints generally return just 100 items per page, but that response includes a link to get the **next** page.  So, to deal with that and get all of the groups, use a `while` loop:
 ```PowerShell
 while ($null -ne $AllUnifiedGroupsRequest.'@odata.nextLink')
     {
