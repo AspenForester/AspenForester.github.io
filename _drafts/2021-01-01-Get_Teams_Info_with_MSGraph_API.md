@@ -18,7 +18,7 @@ The last requirement was to provide a list of the Teams currently in the recycle
 ```PowerShell
 $DeletedTeams = Get-AzureADMSDeletedGroup
 ```
-There are a few problems with these parts to a solution
+There are a few problems with these parts to a solution:
 1. None of those modules are natively Core compatible.  
 2. The "Classic" Exchange Module requires the use of basic authentication.  
 3. Running as myself, I would have to elevate to something like "Team Services Administrator" in Azure AD to use the Teams module.  
