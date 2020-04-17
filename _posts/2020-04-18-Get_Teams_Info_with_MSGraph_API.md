@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Get Teams Infor with MS Graph API
+title: Get Teams Info with MS Graph API
 comments: true
 ---
 
