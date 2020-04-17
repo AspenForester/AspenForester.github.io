@@ -168,6 +168,6 @@ $DeletedTeams | Export-Excel -Path $TodaysReport -WorksheetName 'RecycleBin' -Cl
 ### Conclusion
 Working with the Graph API can allow you to customize your approach to AzureAD and Teams management.  Using the modern App Registration authentication acts not unlike JEA, in that an unprivileged account can be enabled to perform specific limited tasks.  In this case we were able to efficiently gather all of the information we needed about the state of our Teams environment, while managing and maintaining control over access.  With no elevated access required, "who" the script runs as becomes less important, as long as that entity has access to the file location.
 
-The full code for this solution will be available at  
+The full code for this solution will be available as [TeamsReportByGraph.ps1](https://github.com/AspenForester/GraphScripts/blob/master/TeamsReportByGraph.ps1) 
 
 Edited by [AJ Lewis](http://originalmarveluniverse.blogspot.com/)
