@@ -63,7 +63,7 @@ That gives us all of the Unified groups, but not all Unified groups are Teams!
 ```PowerShell
 $Teams = $AllGroups | where-object resourceProvisioningOptions -eq "Team"
 ```
-We know that going and getting the Team object, the members, and the owners is going to involve a lot of waiting for `Inovke-RestMethod` responses, let's start by leveraging some parallelism with:
+We know that going and getting the Team object, the members, and the owners is going to involve a lot of waiting for `Inovke-RestMethod` responses, so let's start by leveraging some parallelism with:
 ```PowerShell
 $TeamsReport = $teams | foreach-object -parallel {...}
 ```
@@ -114,7 +114,7 @@ while ($null -ne $memberRequest.'@odata.nextlink')
     $allmembers += $memberRequest.value
 }
 ```
-Distinguishing the "guests" from the internal "members" is just a matter of examining the User Principal Name (UPN), AzureAD guests will have "EXT" in middle of the UPN.
+Distinguishing the "guests" from the internal "members" is just a matter of examining the User Principal Name (UPN); AzureAD guests will have "EXT" in middle of the UPN.
 ```PowerShell
 $Members = $allmembers | Where-Object userPrincipalName -notlike "*EXT*"
 $Guests = $allmembers | Where-Object userPrincipalName -like "*EXT*"
@@ -160,12 +160,14 @@ It's a matter of outputting a `[pscustomobject]` with all of the team properties
     ExpirationDate                    = $ExpirationDate
 }
 ```
-The last requirement I was presented with was to provide a listing of all of the Groups that were in the recycle bin.  That's found the Graph endpoint `$DeletedGroupsURI = "https://graph.microsoft.com/v1.0/directory/deletedItems/microsoft.graph.group"` As with the Groups themselves, and the members, the results are paginated, and are handled the same ways as before.  My organization wanted an Excel spreadsheet so I used [Doug Finke's ImportExcel](https://github.com/dfinke/ImportExcel) module to export the collections.
+The last requirement I was presented with was to provide a listing of all of the Groups that were in the recycle bin.  That's found with the Graph endpoint `$DeletedGroupsURI = "https://graph.microsoft.com/v1.0/directory/deletedItems/microsoft.graph.group"` As with the Groups themselves and the members, the results are paginated and are handled the same ways as before.  My organization wanted an Excel spreadsheet so I used [Doug Finke's ImportExcel](https://github.com/dfinke/ImportExcel) module to export the collections.
 ```PowerShell
 $TeamsReport | Export-Excel -Path $TodaysReport -WorksheetName 'Teams' -ClearSheet
 $DeletedTeams | Export-Excel -Path $TodaysReport -WorksheetName 'RecycleBin' -ClearSheet 
 ```
 ### Conclusion
-Working with the Graph API can allow you to customize your approach to AzureAD and Teams management.  Using the modern App Registration authentication acts not unlike JEA in that an unprivileged account can be enabled to perform specific limited tasks.  In this case we were able to efficiently gather all of the information we needed about the state of our Teams environment, while managing and maintaining control over access.  With no elevated access required, "who" the script runs as becomes less important, as long as that entity has access to the file location
+Working with the Graph API can allow you to customize your approach to AzureAD and Teams management.  Using the modern App Registration authentication acts not unlike JEA, in that an unprivileged account can be enabled to perform specific limited tasks.  In this case we were able to efficiently gather all of the information we needed about the state of our Teams environment, while managing and maintaining control over access.  With no elevated access required, "who" the script runs as becomes less important, as long as that entity has access to the file location.
 
-The full code for this solution will be available at 
+The full code for this solution will be available at  
+
+Edited by [AJ Lewis](http://originalmarveluniverse.blogspot.com/)
